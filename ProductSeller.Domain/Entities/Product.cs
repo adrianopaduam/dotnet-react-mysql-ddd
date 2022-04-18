@@ -5,9 +5,9 @@ namespace ProductSeller.Domain.Entities
     {
         public string Name { get; set; }
 
-        public decimal Value { get; set; }
+        public decimal? Value { get; set; }
 
-        public Product(int id, string name, decimal value)
+        public Product(int id, string name, decimal? value)
         {
             Id = id;
             Name = name;

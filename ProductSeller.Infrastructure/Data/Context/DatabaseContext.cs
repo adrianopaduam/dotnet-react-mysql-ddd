@@ -7,6 +7,6 @@ namespace ProductSeller.Infrastructure.Data.Context
     {
         public const string SectionName = "ConnectionStrings";
 
-        public string MySqlConnectionString { get; set; }
+        public string MySqlConnectionString { get; set; } = String.Empty;
     }
 }
