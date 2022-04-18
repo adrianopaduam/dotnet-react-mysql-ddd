@@ -1,6 +1,4 @@
-﻿
-
-namespace ProductSeller.Domain.Interfaces
+﻿namespace ProductSeller.Domain.Interfaces
 {
     public interface IDatabaseContext
     {

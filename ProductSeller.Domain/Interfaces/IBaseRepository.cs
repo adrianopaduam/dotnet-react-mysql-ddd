@@ -1,6 +1,5 @@
 ﻿using ProductSeller.Domain.Entities;
 
-
 namespace ProductSeller.Domain.Interfaces
 {
     public interface IBaseRepository<TEntity> where TEntity : BaseEntity

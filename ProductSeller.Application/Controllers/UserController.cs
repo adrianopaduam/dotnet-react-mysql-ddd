@@ -45,7 +45,6 @@ namespace ProductSeller.Application.Controllers
             return Execute(() => _baseUserService.Add<UserValidator>(user));
         }
 
-
         // POST: UserController/Edit/5
         [HttpPut]
         public IActionResult Update([FromBody] User user)
@@ -64,7 +63,6 @@ namespace ProductSeller.Application.Controllers
 
             return Execute(() => _baseUserService.Delete(id));
         }
-
 
         private IActionResult Execute(Func<object> functionToExecute)
         {

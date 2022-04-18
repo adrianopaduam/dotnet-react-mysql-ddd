@@ -6,7 +6,7 @@ namespace ProductSeller.Domain.Interfaces
     public interface IBaseService<TEntity> where TEntity : BaseEntity
     {
         TEntity Add<TValidator>(TEntity entity) where TValidator : AbstractValidator<TEntity>;
-        
+
         TEntity Update<TValidator>(TEntity entity) where TValidator : AbstractValidator<TEntity>;
 
         bool Delete(int id);

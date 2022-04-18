@@ -1,8 +1,6 @@
-﻿
-
-namespace ProductSeller.Domain.Entities
+﻿namespace ProductSeller.Domain.Entities
 {
-    public class PurchaseProductRel: BaseEntity
+    public class PurchaseProductRel : BaseEntity
     {
         public int PurchaseId { get; set; }
 

@@ -1,8 +1,6 @@
-﻿
-
-namespace ProductSeller.Domain.Entities
+﻿namespace ProductSeller.Domain.Entities
 {
-    public class User: BaseEntity
+    public class User : BaseEntity
     {
         public string Name { get; set; }
 

@@ -2,7 +2,6 @@
 using ProductSeller.Domain.Entities;
 using ProductSeller.Domain.Interfaces;
 
-
 namespace ProductSeller.Service.Services
 {
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity

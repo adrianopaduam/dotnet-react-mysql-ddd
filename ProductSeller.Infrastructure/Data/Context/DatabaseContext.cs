@@ -1,5 +1,4 @@
-﻿
-using ProductSeller.Domain.Interfaces;
+﻿using ProductSeller.Domain.Interfaces;
 
 namespace ProductSeller.Infrastructure.Data.Context
 {

@@ -1,5 +1,4 @@
-﻿
-namespace ProductSeller.Domain.Entities
+﻿namespace ProductSeller.Domain.Entities
 {
     public class Product : BaseEntity
     {

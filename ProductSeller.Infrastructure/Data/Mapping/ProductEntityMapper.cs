@@ -2,7 +2,6 @@
 using ProductSeller.Domain.Entities;
 using ProductSeller.Domain.Interfaces;
 
-
 namespace ProductSeller.Infrastructure.Data.Mapping
 {
     public class ProductEntityMapper<TEntity> : IEntityMapper<TEntity> where TEntity : Product

@@ -39,7 +39,6 @@ namespace ProductSeller.Application.Controllers
             return product == null ? BadRequest() : Execute(() => _baseProductService.Add<ProductValidator>(product));
         }
 
-
         // POST: UserController/Edit/5
         [HttpPut]
         public IActionResult Update([FromBody] Product product)
@@ -55,7 +54,6 @@ namespace ProductSeller.Application.Controllers
 
             return Execute(() => _baseProductService.Delete(id));
         }
-
 
         private IActionResult Execute(Func<object> functionToExecute)
         {

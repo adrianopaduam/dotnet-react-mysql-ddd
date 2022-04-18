@@ -1,9 +1,6 @@
-﻿using ProductSeller.Domain.Entities;
+﻿using MySql.Data.MySqlClient;
+using ProductSeller.Domain.Entities;
 using ProductSeller.Domain.Interfaces;
-using ProductSeller.Infrastructure.Data.Context;
-using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
-
 
 namespace ProductSeller.Infrastructure.Data.Repository
 {
@@ -24,11 +21,10 @@ namespace ProductSeller.Infrastructure.Data.Repository
             _entityMapper = mapper;
         }
 
-
         public void Add(TEntity entity)
         {
             MySqlCommand command = _queryBuilder.CreateQuery(_sqlConnection, entity);
-            
+
             _sqlConnection.Open();
             MySqlTransaction transaction = _sqlConnection.BeginTransaction();
             try

@@ -2,7 +2,6 @@
 using ProductSeller.Domain.Entities;
 using ProductSeller.Domain.Interfaces;
 
-
 namespace ProductSeller.Infrastructure.Data.Query
 {
     public class ProductQueryBuilder<TEntity> : IQueryBuilder<TEntity> where TEntity : Product

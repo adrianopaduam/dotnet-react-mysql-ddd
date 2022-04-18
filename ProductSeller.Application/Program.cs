@@ -1,10 +1,10 @@
 using ProductSeller.Domain.Entities;
 using ProductSeller.Domain.Interfaces;
-using ProductSeller.Service.Services;
-using ProductSeller.Infrastructure.Data.Query;
 using ProductSeller.Infrastructure.Data.Context;
-using ProductSeller.Infrastructure.Data.Repository;
 using ProductSeller.Infrastructure.Data.Mapping;
+using ProductSeller.Infrastructure.Data.Query;
+using ProductSeller.Infrastructure.Data.Repository;
+using ProductSeller.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

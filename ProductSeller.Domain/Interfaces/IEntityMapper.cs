@@ -1,6 +1,5 @@
-﻿using ProductSeller.Domain.Entities;
-using MySql.Data.MySqlClient;
-
+﻿using MySql.Data.MySqlClient;
+using ProductSeller.Domain.Entities;
 
 namespace ProductSeller.Domain.Interfaces
 {

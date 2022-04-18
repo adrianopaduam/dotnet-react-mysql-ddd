@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProductSeller.Domain.Entities;
 using ProductSeller.Domain.Interfaces;
-using System.Data.SqlClient;
 
 namespace ProductSeller.Infrastructure.Data.Query
 {

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProductSeller.Domain.Entities
+﻿namespace ProductSeller.Domain.Entities
 {
-    public class PurchaseOrder: BaseEntity
+    public class PurchaseOrder : BaseEntity
     {
         public int UserId { get; set; }
 
