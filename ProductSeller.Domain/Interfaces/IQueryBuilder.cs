@@ -1,18 +1,18 @@
-﻿using ProductSeller.Domain.Entities;
-using System.Data.SqlClient;
+﻿using MySql.Data.MySqlClient;
+using ProductSeller.Domain.Entities;
 
 namespace ProductSeller.Domain.Interfaces
 {
-    public interface IQueryBuilder<TEntity> where TEntity : BaseEntity
+    public interface IQueryBuilder<in TEntity> where TEntity : BaseEntity
     {
-        SqlCommand CreateQuery(SqlConnection sqlConnection, TEntity entity);
+        MySqlCommand CreateQuery(MySqlConnection sqlConnection, TEntity entity);
 
-        SqlCommand UpdateQuery(SqlConnection sqlConnection, TEntity entity);
+        MySqlCommand UpdateQuery(MySqlConnection sqlConnection, TEntity entity);
 
-        SqlCommand DeleteQuery(SqlConnection sqlConnection, int id);
+        MySqlCommand DeleteQuery(MySqlConnection sqlConnection, int id);
 
-        SqlCommand GetAllQuery(SqlConnection sqlConnection);
+        MySqlCommand GetAllQuery(MySqlConnection sqlConnection);
 
-        SqlCommand GetByIdQuery(SqlConnection sqlConnection, int id);
+        MySqlCommand GetByIdQuery(MySqlConnection sqlConnection, int id);
     }
 }

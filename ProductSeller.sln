@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductSeller.Domain", "ProductSeller.Domain\ProductSeller.Domain.csproj", "{DDF85529-BE72-4923-B6B1-FD7057346BB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductSeller.Domain", "ProductSeller.Domain\ProductSeller.Domain.csproj", "{DDF85529-BE72-4923-B6B1-FD7057346BB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductSeller.Infrastructure", "ProductSeller.Infrastructure\ProductSeller.Infrastructure.csproj", "{3E1C7DF2-9D25-46EA-B3FD-5C6CBDD89F4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductSeller.Infrastructure", "ProductSeller.Infrastructure\ProductSeller.Infrastructure.csproj", "{3E1C7DF2-9D25-46EA-B3FD-5C6CBDD89F4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductSeller.Application", "ProductSeller.Application\ProductSeller.Application.csproj", "{40E28B8B-414A-4EE2-9DA9-B2F1096EBFF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductSeller.Application", "ProductSeller.Application\ProductSeller.Application.csproj", "{40E28B8B-414A-4EE2-9DA9-B2F1096EBFF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductSeller.Service", "ProductSeller.Service\ProductSeller.Service.csproj", "{F5B910DF-1EFC-4867-ACEA-22B4AA771F9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductSeller.Service", "ProductSeller.Service\ProductSeller.Service.csproj", "{F5B910DF-1EFC-4867-ACEA-22B4AA771F9A}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5A483A9C-C1FB-43A6-86E3-69CC4A95BA14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F5B910DF-1EFC-4867-ACEA-22B4AA771F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5B910DF-1EFC-4867-ACEA-22B4AA771F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5B910DF-1EFC-4867-ACEA-22B4AA771F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A483A9C-C1FB-43A6-86E3-69CC4A95BA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A483A9C-C1FB-43A6-86E3-69CC4A95BA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A483A9C-C1FB-43A6-86E3-69CC4A95BA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A483A9C-C1FB-43A6-86E3-69CC4A95BA14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

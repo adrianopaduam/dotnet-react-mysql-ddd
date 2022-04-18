@@ -1,0 +1,25 @@
+version: '3.4'
+
+volumes:
+    db_data:
+
+services:
+    database:
+        image: mysql:5.7
+        environment:
+           MYSQL_RANDOM_ROOT_PASSWORD: 1
+           MYSQL_DATABASE: productseller
+           MYSQL_USER: dbuser
+           MYSQL_PASSWORD: dbuserpassword
+        volumes:
+            - db_data:/var/lib/mysql
+            - ./ProductSeller.Infrastructure/Data/Sql:/docker-entrypoint-initdb.d
+        restart: always
+
+    productseller.application:
+        image: ${DOCKER_REGISTRY-}productsellerapplication
+        build:
+            context: .
+            dockerfile: ProductSeller.Application/Dockerfile
+        depends_on:
+            - database

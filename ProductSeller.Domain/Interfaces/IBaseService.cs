@@ -9,10 +9,10 @@ namespace ProductSeller.Domain.Interfaces
         
         TEntity Update<TValidator>(TEntity entity) where TValidator : AbstractValidator<TEntity>;
 
-        void Delete(int id);
+        bool Delete(int id);
 
         IList<TEntity> GetAll();
 
-        TEntity GetById(int id);
+        TEntity? GetById(int id);
     }
 }

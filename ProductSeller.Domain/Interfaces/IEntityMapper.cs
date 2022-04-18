@@ -1,11 +1,11 @@
 ﻿using ProductSeller.Domain.Entities;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 
 namespace ProductSeller.Domain.Interfaces
 {
-    public interface IEntityMapper<TEntity> where TEntity : BaseEntity
+    public interface IEntityMapper<out TEntity> where TEntity : BaseEntity
     {
-        TEntity Map(SqlDataReader dataReader);
+        TEntity Map(MySqlDataReader dataReader);
     }
 }

@@ -1,25 +1,23 @@
 ﻿using ProductSeller.Domain.Entities;
 using ProductSeller.Domain.Interfaces;
+using ProductSeller.Infrastructure.Data.Context;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 
 namespace ProductSeller.Infrastructure.Data.Repository
 {
-    public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
-        private static SqlConnection _sqlConnection;
+        private readonly MySqlConnection _sqlConnection;
 
-        private IQueryBuilder<TEntity> _queryBuilder;
+        private readonly IQueryBuilder<TEntity> _queryBuilder;
 
-        private IEntityMapper<TEntity> _entityMapper;
+        private readonly IEntityMapper<TEntity> _entityMapper;
 
-        public BaseRepository(string connectionString, IQueryBuilder<TEntity> queryBuilder, IEntityMapper<TEntity> mapper)
+        public BaseRepository(IDatabaseContext databaseContext, IQueryBuilder<TEntity> queryBuilder, IEntityMapper<TEntity> mapper)
         {
-            _sqlConnection = new SqlConnection(connectionString);
-            if (_sqlConnection == null)
-            {
-                throw new Exception("Improve HERE");
-            }
+            _sqlConnection = new MySqlConnection(databaseContext.MySqlConnectionString);
 
             _queryBuilder = queryBuilder;
 
@@ -29,9 +27,10 @@ namespace ProductSeller.Infrastructure.Data.Repository
 
         public void Add(TEntity entity)
         {
-            SqlCommand command = _queryBuilder.CreateQuery(_sqlConnection, entity);
-
-            SqlTransaction transaction = _sqlConnection.BeginTransaction();
+            MySqlCommand command = _queryBuilder.CreateQuery(_sqlConnection, entity);
+            
+            _sqlConnection.Open();
+            MySqlTransaction transaction = _sqlConnection.BeginTransaction();
             try
             {
                 command.Transaction = transaction;
@@ -46,10 +45,11 @@ namespace ProductSeller.Infrastructure.Data.Repository
 
         public bool Delete(int id)
         {
-            SqlCommand command = _queryBuilder.DeleteQuery(_sqlConnection, id);
+            MySqlCommand command = _queryBuilder.DeleteQuery(_sqlConnection, id);
 
             int rowsAffected = 0;
-            SqlTransaction transaction = _sqlConnection.BeginTransaction();
+            _sqlConnection.Open();
+            MySqlTransaction transaction = _sqlConnection.BeginTransaction();
             try
             {
                 command.Transaction = transaction;
@@ -68,8 +68,10 @@ namespace ProductSeller.Infrastructure.Data.Repository
         {
             List<TEntity> allRecordsList = new List<TEntity>();
 
-            SqlCommand command = _queryBuilder.GetAllQuery(_sqlConnection);
-            SqlTransaction transaction = _sqlConnection.BeginTransaction();
+            MySqlCommand command = _queryBuilder.GetAllQuery(_sqlConnection);
+
+            _sqlConnection.Open();
+            MySqlTransaction transaction = _sqlConnection.BeginTransaction();
             try
             {
                 command.Transaction = transaction;
@@ -100,19 +102,18 @@ namespace ProductSeller.Infrastructure.Data.Repository
         {
             TEntity? record = null;
 
-            SqlCommand command = _queryBuilder.GetByIdQuery(_sqlConnection, id);
-            SqlTransaction transaction = _sqlConnection.BeginTransaction();
+            MySqlCommand command = _queryBuilder.GetByIdQuery(_sqlConnection, id);
+
+            _sqlConnection.Open();
+            MySqlTransaction transaction = _sqlConnection.BeginTransaction();
             try
             {
                 command.Transaction = transaction;
                 var reader = command.ExecuteReader();
                 try
                 {
-                    while (reader.Read())
-                    {
-                        record = _entityMapper.Map(reader);
-                        break;
-                    }
+                    reader.Read();
+                    record = _entityMapper.Map(reader);
                 }
                 finally
                 {
@@ -131,9 +132,10 @@ namespace ProductSeller.Infrastructure.Data.Repository
 
         public void Update(TEntity entity)
         {
-            SqlCommand command = _queryBuilder.UpdateQuery(_sqlConnection, entity);
+            MySqlCommand command = _queryBuilder.UpdateQuery(_sqlConnection, entity);
 
-            SqlTransaction transaction = _sqlConnection.BeginTransaction();
+            _sqlConnection.Open();
+            MySqlTransaction transaction = _sqlConnection.BeginTransaction();
             try
             {
                 command.Transaction = transaction;
